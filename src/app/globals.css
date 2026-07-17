@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+:root {
+  --color-panorama-black: #0a0a0a;
+  --color-panorama-gold: #c9a961;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-panorama-black);
+  color: #f5f5f0;
+}
