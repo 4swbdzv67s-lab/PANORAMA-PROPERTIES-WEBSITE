@@ -45,25 +45,25 @@ export const projects: Project[] = [
   {
     slug: "malaika",
     name: "Malaika",
-    tagline: "Coastal serenity meets modern design",
+    tagline: "Lubumbashi's future luxury neighborhood",
     status: "Now Selling",
     description:
-      "A waterfront development built for calm, unhurried living — open layouts, natural light, and spaces designed to slow down in.",
+      "A new luxury neighborhood taking shape in Lubumbashi. Land plots are available to reserve and purchase securely through Malaika City's dedicated digital buyer portal, with guarantees and support at every step.",
     highlights: [
-      "Direct waterfront access",
-      "Floor-to-ceiling windows",
-      "Private terraces and gardens",
-      "On-site concierge",
+      "Located in Lubumbashi",
+      "Secure plot purchase via a dedicated buyer portal",
+      "Purchase guarantees and dedicated support",
+      "Regular open-house events on site",
     ],
     fr: {
-      tagline: "La sérénité côtière rencontre le design moderne",
+      tagline: "Le futur quartier de luxe de Lubumbashi",
       description:
-        "Un projet en bord d'eau conçu pour une vie calme et sereine — espaces ouverts, lumière naturelle et lieux pensés pour ralentir le rythme.",
+        "Un nouveau quartier de luxe qui prend forme à Lubumbashi. Les parcelles sont disponibles à la réservation et à l'achat en toute sécurité via le portail acheteur dédié de Malaika City, avec garanties et accompagnement à chaque étape.",
       highlights: [
-        "Accès direct à l'eau",
-        "Fenêtres du sol au plafond",
-        "Terrasses et jardins privés",
-        "Conciergerie sur place",
+        "Situé à Lubumbashi",
+        "Achat sécurisé de parcelles via un portail dédié",
+        "Garanties d'achat et accompagnement personnalisé",
+        "Journées portes ouvertes régulières sur site",
       ],
     },
   },
