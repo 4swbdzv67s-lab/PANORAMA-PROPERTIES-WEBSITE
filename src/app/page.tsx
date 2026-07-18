@@ -45,6 +45,7 @@ export default function Home() {
           poster="/images/homepage-hero-bg.jpg"
           className="absolute inset-0 h-full w-full object-cover"
         >
+          <source src="/videos/homepage-hero-2.mov" type="video/mp4" />
           <source src="/videos/homepage-hero.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(0,0,0,0.9),rgba(0,0,0,0.25)_45%,rgba(0,0,0,0.6))]" />
