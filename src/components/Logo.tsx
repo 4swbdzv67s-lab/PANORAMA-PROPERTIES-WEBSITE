@@ -1,3 +1,7 @@
+"use client";
+
+import { motion, type Variants } from "framer-motion";
+
 const mark = (
   <svg viewBox="0 0 100 70" fill="none" stroke="currentColor" strokeLinecap="round">
     <path d="M12 40 L40 14 M22 40 L44 20 M32 40 L48 26" strokeWidth="3" />
@@ -7,18 +11,106 @@ const mark = (
   </svg>
 );
 
+const markPaths = [
+  "M12 40 L40 14 M22 40 L44 20 M32 40 L48 26",
+  "M40 14 L68 40",
+  "M68 12 L68 40 L80 40 L80 8 L68 8",
+  "M50 40 L50 52",
+];
+
+const letterContainer: Variants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.06, delayChildren: 0.7 },
+  },
+};
+
+const letterVariants: Variants = {
+  hidden: { opacity: 0, y: 24, filter: "blur(6px)" },
+  visible: {
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
+
+function AnimatedMark() {
+  return (
+    <svg
+      viewBox="0 0 100 70"
+      fill="none"
+      stroke="currentColor"
+      strokeLinecap="round"
+      className="h-24 w-32"
+    >
+      {markPaths.map((d, i) => (
+        <motion.path
+          key={d}
+          d={d}
+          strokeWidth="3"
+          strokeLinejoin={i === 2 ? "round" : undefined}
+          initial={{ pathLength: 0, opacity: 0 }}
+          animate={{ pathLength: 1, opacity: 1 }}
+          transition={{
+            duration: 0.9,
+            delay: i * 0.15,
+            ease: [0.65, 0, 0.35, 1],
+          }}
+        />
+      ))}
+    </svg>
+  );
+}
+
+function AnimatedWordmark({ text }: { text: string }) {
+  return (
+    <motion.div
+      variants={letterContainer}
+      initial="hidden"
+      animate="visible"
+      className="flex text-4xl font-light text-white md:text-5xl"
+      style={{ letterSpacing: "0.35em" }}
+    >
+      {text.split("").map((char, i) => (
+        <motion.span key={i} variants={letterVariants}>
+          {char}
+        </motion.span>
+      ))}
+    </motion.div>
+  );
+}
+
 export function Logo({ size = "sm" }: { size?: "sm" | "lg" }) {
   if (size === "lg") {
     return (
       <div className="flex flex-col items-center text-[#d92b25]">
-        <div className="h-24 w-32">{mark}</div>
-        <div className="mt-4 text-4xl font-light tracking-[0.35em] text-white md:text-5xl">
-          PANORAMA
+        <AnimatedMark />
+        <div className="mt-4">
+          <AnimatedWordmark text="PANORAMA" />
         </div>
         <div className="mt-2 flex items-center gap-3 text-sm font-medium tracking-[0.5em]">
-          <span className="h-px w-8 bg-[#d92b25]/60" />
-          PROPERTIES
-          <span className="h-px w-8 bg-[#d92b25]/60" />
+          <motion.span
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ duration: 0.5, delay: 1.5, ease: "easeOut" }}
+            style={{ transformOrigin: "right" }}
+            className="h-px w-8 bg-[#d92b25]/60"
+          />
+          <motion.span
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 1.55 }}
+          >
+            PROPERTIES
+          </motion.span>
+          <motion.span
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ duration: 0.5, delay: 1.5, ease: "easeOut" }}
+            style={{ transformOrigin: "left" }}
+            className="h-px w-8 bg-[#d92b25]/60"
+          />
         </div>
       </div>
     );

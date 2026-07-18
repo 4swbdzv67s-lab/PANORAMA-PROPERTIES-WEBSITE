@@ -62,24 +62,27 @@ export default function Home() {
             <span className="h-1 w-1 rounded-full bg-white/40" />
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-            className="text-center"
-          >
+          <div className="text-center">
             <Logo size="lg" />
-            <p className="mt-4 text-[11px] tracking-[0.5em] text-white/40">
+            <motion.p
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 1.9 }}
+              className="mt-4 text-[11px] tracking-[0.5em] text-white/40"
+            >
               {t.hero.tagline}
-            </p>
-            <a
+            </motion.p>
+            <motion.a
               href="#projects"
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 2.15 }}
               className="mt-10 inline-flex items-center gap-3 rounded-full border border-[#d92b25]/70 bg-black/30 px-8 py-3 text-sm font-medium tracking-wide text-white transition hover:bg-[#d92b25]"
             >
               {t.hero.startExperience}
               <ArrowIcon className="h-4 w-4" />
-            </a>
-          </motion.div>
+            </motion.a>
+          </div>
 
           <div className="absolute right-8 top-1/2 hidden w-44 -translate-y-1/2 rounded-2xl border border-white/10 bg-black/40 p-5 text-center backdrop-blur-sm xl:block">
             <div className="flex items-center gap-2 text-[11px] font-medium tracking-widest text-white">
