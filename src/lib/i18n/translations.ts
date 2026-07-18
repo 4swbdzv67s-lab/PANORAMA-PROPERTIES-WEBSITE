@@ -53,6 +53,25 @@ export const translations = {
       nowSelling: "NOW SELLING",
       comingSoon: "COMING SOON",
     },
+    about: {
+      eyebrow: "ABOUT US",
+      title: "About Panorama Properties",
+      intro:
+        "We're building Africa's next generation of real estate experiences — where architecture, technology, and storytelling meet.",
+      missionTitle: "Our Mission",
+      missionText:
+        "We design and deliver developments that respect how people actually want to live — pairing thoughtful architecture with technology and a transparent process, from first walkthrough to final handover.",
+      visionTitle: "Our Vision",
+      visionText:
+        "To become Africa's leading digital real estate experience platform, combining architecture, technology, and storytelling into one seamless experience.",
+      contactTitle: "Get in Touch",
+      addressLabel: "Address",
+      address: "[Street address, city, country]",
+      phoneLabel: "Phone",
+      phone: "[+000 000 000 000]",
+      emailLabel: "Email",
+      email: "info@panoramaproperties.com",
+    },
     footer: {
       rights: "All Rights Reserved.",
     },
@@ -116,6 +135,25 @@ export const translations = {
       siteAndMasterplan: "PLAN DU SITE",
       nowSelling: "EN VENTE",
       comingSoon: "BIENTÔT DISPONIBLE",
+    },
+    about: {
+      eyebrow: "À PROPOS",
+      title: "À propos de Panorama Properties",
+      intro:
+        "Nous construisons la nouvelle génération de l'immobilier en Afrique — là où l'architecture, la technologie et le storytelling se rencontrent.",
+      missionTitle: "Notre Mission",
+      missionText:
+        "Nous concevons et livrons des projets qui respectent la façon dont les gens veulent vraiment vivre — alliant une architecture réfléchie à la technologie et un processus transparent, du premier rendez-vous à la remise des clés.",
+      visionTitle: "Notre Vision",
+      visionText:
+        "Devenir la première plateforme d'expérience immobilière numérique en Afrique, alliant architecture, technologie et storytelling en une seule expérience.",
+      contactTitle: "Nous Contacter",
+      addressLabel: "Adresse",
+      address: "[Adresse, ville, pays]",
+      phoneLabel: "Téléphone",
+      phone: "[+000 000 000 000]",
+      emailLabel: "E-mail",
+      email: "info@panoramaproperties.com",
     },
     footer: {
       rights: "Tous Droits Réservés.",
