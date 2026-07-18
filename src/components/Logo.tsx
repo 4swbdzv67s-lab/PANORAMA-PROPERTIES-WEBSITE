@@ -1,6 +1,7 @@
 "use client";
 
-import { motion, type Variants } from "framer-motion";
+import { motion } from "framer-motion";
+import { AnimatedText } from "./AnimatedText";
 
 const mark = (
   <svg viewBox="0 0 100 70" fill="none" stroke="currentColor" strokeLinecap="round">
@@ -17,23 +18,6 @@ const markPaths = [
   "M68 12 L68 40 L80 40 L80 8 L68 8",
   "M50 40 L50 52",
 ];
-
-const letterContainer: Variants = {
-  hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.06, delayChildren: 0.7 },
-  },
-};
-
-const letterVariants: Variants = {
-  hidden: { opacity: 0, y: 24, filter: "blur(6px)" },
-  visible: {
-    opacity: 1,
-    y: 0,
-    filter: "blur(0px)",
-    transition: { duration: 0.6, ease: "easeOut" },
-  },
-};
 
 function AnimatedMark() {
   return (
@@ -63,31 +47,19 @@ function AnimatedMark() {
   );
 }
 
-function AnimatedWordmark({ text }: { text: string }) {
-  return (
-    <motion.div
-      variants={letterContainer}
-      initial="hidden"
-      animate="visible"
-      className="flex text-4xl font-light text-white md:text-5xl"
-      style={{ letterSpacing: "0.35em" }}
-    >
-      {text.split("").map((char, i) => (
-        <motion.span key={i} variants={letterVariants}>
-          {char}
-        </motion.span>
-      ))}
-    </motion.div>
-  );
-}
-
 export function Logo({ size = "sm" }: { size?: "sm" | "lg" }) {
   if (size === "lg") {
     return (
       <div className="flex flex-col items-center text-[#d92b25]">
         <AnimatedMark />
         <div className="mt-4">
-          <AnimatedWordmark text="PANORAMA" />
+          <AnimatedText
+            text="PANORAMA"
+            stagger={0.06}
+            delay={0.7}
+            className="text-4xl font-light text-white md:text-5xl"
+            style={{ letterSpacing: "0.35em" }}
+          />
         </div>
         <div className="mt-2 flex items-center gap-3 text-sm font-medium tracking-[0.5em]">
           <motion.span

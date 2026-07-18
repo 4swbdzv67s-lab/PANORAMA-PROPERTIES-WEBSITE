@@ -1,14 +1,19 @@
 "use client";
 
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { GalleryScroll } from "@/components/GalleryScroll";
+import { AnimatedText, animatedTextDuration } from "@/components/AnimatedText";
 import { ArrowIcon } from "@/components/icons";
 import { useLocale } from "@/lib/i18n/LocaleContext";
 import { useTheme } from "@/lib/theme/ThemeContext";
 import type { Project } from "@/lib/projects";
 import type { GalleryImage } from "@/lib/golf-kabulameshi-gallery";
+
+const TITLE_STAGGER = 0.035;
+const TITLE_DELAY = 0.35;
 
 type Props = {
   project: Project;
@@ -52,14 +57,22 @@ export function ProjectDetail({ project, galleryDay, galleryNight, plans }: Prop
         )}
         <Nav />
         <div className="relative px-8 pb-24 pt-4 md:px-16">
-          <a
+          <motion.a
+            key={`crumb-${project.slug}`}
             href="/developments"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
             className="inline-flex items-center gap-2 text-xs tracking-widest text-white/50 transition hover:text-white"
           >
             <ArrowIcon className="h-3.5 w-3.5 rotate-180" />
             {t.developments.allDevelopments}
-          </a>
-          <span
+          </motion.a>
+          <motion.span
+            key={`badge-${project.slug}`}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.4, delay: 0.15 }}
             className={`mt-8 inline-block rounded-full px-3 py-1 text-[10px] font-medium tracking-widest ${
               project.status === "Now Selling"
                 ? "bg-[#d92b25] text-white"
@@ -67,11 +80,27 @@ export function ProjectDetail({ project, galleryDay, galleryNight, plans }: Prop
             }`}
           >
             {statusLabel}
-          </span>
+          </motion.span>
           <h1 className="mt-4 text-4xl font-light text-white md:text-6xl">
-            {project.name}
+            <AnimatedText
+              key={`title-${project.slug}`}
+              text={project.name}
+              stagger={TITLE_STAGGER}
+              delay={TITLE_DELAY}
+            />
           </h1>
-          <p className="mt-3 text-lg text-white/50">{tagline}</p>
+          <motion.p
+            key={`tagline-${project.slug}-${locale}`}
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.5,
+              delay: animatedTextDuration(project.name, TITLE_STAGGER, TITLE_DELAY) - 0.2,
+            }}
+            className="mt-3 text-lg text-white/50"
+          >
+            {tagline}
+          </motion.p>
         </div>
       </div>
 
