@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { ArrowIcon } from "./icons";
+import { useLocale } from "@/lib/i18n/LocaleContext";
+import { useTheme } from "@/lib/theme/ThemeContext";
 import type { Project } from "@/lib/projects";
 
 export function DevelopmentsShowcase({ projects }: { projects: Project[] }) {
@@ -12,6 +14,16 @@ export function DevelopmentsShowcase({ projects }: { projects: Project[] }) {
   const [userPaused, setUserPaused] = useState(false);
   const playing = !isHovering && !userPaused;
   const project = projects[index];
+  const { locale, t } = useLocale();
+  const { theme } = useTheme();
+
+  const tagline = locale === "fr" ? project.fr.tagline : project.tagline;
+  const statusLabel =
+    project.status === "Now Selling" ? t.developments.nowSelling : t.developments.comingSoon;
+  const image =
+    theme === "night"
+      ? project.heroImageNight ?? project.heroImage
+      : project.heroImage;
 
   useEffect(() => {
     if (!playing) return;
@@ -37,16 +49,16 @@ export function DevelopmentsShowcase({ projects }: { projects: Project[] }) {
     >
       <AnimatePresence mode="sync">
         <motion.div
-          key={project.slug}
+          key={`${project.slug}-${theme}`}
           initial={{ opacity: 0, scale: 1.06 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.98 }}
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           className="absolute inset-0"
         >
-          {project.heroImage ? (
+          {image ? (
             <Image
-              src={project.heroImage}
+              src={image}
               alt={project.name}
               fill
               sizes="100vw"
@@ -54,14 +66,14 @@ export function DevelopmentsShowcase({ projects }: { projects: Project[] }) {
               priority={index === 0}
             />
           ) : (
-            <div className="absolute inset-0 bg-gradient-to-br from-[#3d3d3d] to-[#141414]" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[var(--card-from)] to-[var(--card-to)]" />
           )}
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/10" />
         </motion.div>
       </AnimatePresence>
 
       <motion.div
-        key={`scan-${project.slug}`}
+        key={`scan-${project.slug}-${theme}`}
         initial={{ x: "-100%", opacity: 0.8 }}
         animate={{ x: "200%", opacity: 0 }}
         transition={{ duration: 0.9, ease: "easeOut" }}
@@ -80,14 +92,14 @@ export function DevelopmentsShowcase({ projects }: { projects: Project[] }) {
                 : "border border-white/30 text-white/70"
             }`}
           >
-            {project.status.toUpperCase()}
+            {statusLabel}
           </span>
         </div>
 
         <div>
           <AnimatePresence mode="wait">
             <motion.div
-              key={`text-${project.slug}`}
+              key={`text-${project.slug}-${locale}`}
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -16 }}
@@ -97,13 +109,13 @@ export function DevelopmentsShowcase({ projects }: { projects: Project[] }) {
                 {project.name}
               </h3>
               <p className="mt-2 text-sm text-white/60 md:text-base">
-                {project.tagline}
+                {tagline}
               </p>
               <a
                 href={`/developments/${project.slug}`}
                 className="mt-5 inline-flex items-center gap-2 rounded-full border border-[#d92b25]/70 bg-black/30 px-6 py-2.5 text-xs font-medium tracking-widest text-white transition hover:bg-[#d92b25]"
               >
-                VIEW DEVELOPMENT
+                {t.developments.viewDevelopment}
                 <ArrowIcon className="h-3.5 w-3.5" />
               </a>
             </motion.div>

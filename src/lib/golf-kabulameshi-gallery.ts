@@ -5,7 +5,7 @@ export type GalleryImage = {
   height: number;
 };
 
-export const renders: GalleryImage[] = [
+export const rendersDay: GalleryImage[] = [
   {
     src: "/images/golf-kabulameshi/render-01-gate-day.jpg",
     alt: "Aerial view of the gated entrance and villas at Golf Kabulameshi",
@@ -54,9 +54,12 @@ export const renders: GalleryImage[] = [
     width: 1536,
     height: 1024,
   },
+];
+
+export const rendersNight: GalleryImage[] = [
   {
     src: "/images/golf-kabulameshi/render-04-night-aerial.jpg",
-    alt: "Golf Kabulameshi illuminated at dusk",
+    alt: "Golf Kabulameshi illuminated at night",
     width: 1536,
     height: 1024,
   },
