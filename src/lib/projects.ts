@@ -48,22 +48,23 @@ export const projects: Project[] = [
     tagline: "Lubumbashi's future luxury neighborhood",
     status: "Now Selling",
     description:
-      "A new luxury neighborhood taking shape in Lubumbashi. Land plots are available to reserve and purchase securely through Malaika City's dedicated digital buyer portal, with guarantees and support at every step.",
+      "Residence Malaika is a gated townhouse community taking shape in Lubumbashi, with secured entry, finished model homes, and land plots available to reserve through Malaika City's dedicated digital buyer portal.",
+    heroImage: "/images/malaika/render-06-gate-white.jpg",
     highlights: [
       "Located in Lubumbashi",
+      "Gated entrance with on-site security",
+      "Modern townhouse interiors with private patios",
       "Secure plot purchase via a dedicated buyer portal",
-      "Purchase guarantees and dedicated support",
-      "Regular open-house events on site",
     ],
     fr: {
       tagline: "Le futur quartier de luxe de Lubumbashi",
       description:
-        "Un nouveau quartier de luxe qui prend forme à Lubumbashi. Les parcelles sont disponibles à la réservation et à l'achat en toute sécurité via le portail acheteur dédié de Malaika City, avec garanties et accompagnement à chaque étape.",
+        "Résidence Malaika est une communauté résidentielle sécurisée qui prend forme à Lubumbashi, avec entrée gardée, maisons témoins finies, et parcelles disponibles à la réservation via le portail acheteur dédié de Malaika City.",
       highlights: [
         "Situé à Lubumbashi",
+        "Entrée sécurisée avec surveillance sur place",
+        "Intérieurs modernes avec patios privés",
         "Achat sécurisé de parcelles via un portail dédié",
-        "Garanties d'achat et accompagnement personnalisé",
-        "Journées portes ouvertes régulières sur site",
       ],
     },
   },

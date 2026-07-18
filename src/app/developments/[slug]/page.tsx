@@ -2,13 +2,35 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ProjectDetail } from "@/components/ProjectDetail";
 import { projects } from "@/lib/projects";
+import type { GalleryImage } from "@/lib/golf-kabulameshi-gallery";
 import {
   rendersDay as golfKabulameshiRendersDay,
   rendersNight as golfKabulameshiRendersNight,
   plans as golfKabulameshiPlans,
 } from "@/lib/golf-kabulameshi-gallery";
+import { renders as malaikaRenders } from "@/lib/malaika-gallery";
 
 type Props = { params: Promise<{ slug: string }> };
+
+type GalleryEntry = {
+  galleryDay: GalleryImage[] | null;
+  galleryNight: GalleryImage[] | null;
+  plans: (GalleryImage & { label: string })[] | null;
+};
+
+const galleryBySlug: Record<string, GalleryEntry> = {
+  "golf-kabulameshi": {
+    galleryDay: golfKabulameshiRendersDay,
+    galleryNight: golfKabulameshiRendersNight,
+    plans: golfKabulameshiPlans,
+  },
+  malaika: {
+    // Same renders regardless of theme — Malaika only has day-lit shots.
+    galleryDay: malaikaRenders,
+    galleryNight: malaikaRenders,
+    plans: null,
+  },
+};
 
 export function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }));
@@ -29,14 +51,18 @@ export default async function ProjectPage({ params }: Props) {
   const project = projects.find((p) => p.slug === slug);
   if (!project) notFound();
 
-  const isGolfKabulameshi = slug === "golf-kabulameshi";
+  const gallery = galleryBySlug[slug] ?? {
+    galleryDay: null,
+    galleryNight: null,
+    plans: null,
+  };
 
   return (
     <ProjectDetail
       project={project}
-      galleryDay={isGolfKabulameshi ? golfKabulameshiRendersDay : null}
-      galleryNight={isGolfKabulameshi ? golfKabulameshiRendersNight : null}
-      plans={isGolfKabulameshi ? golfKabulameshiPlans : null}
+      galleryDay={gallery.galleryDay}
+      galleryNight={gallery.galleryNight}
+      plans={gallery.plans}
     />
   );
 }
