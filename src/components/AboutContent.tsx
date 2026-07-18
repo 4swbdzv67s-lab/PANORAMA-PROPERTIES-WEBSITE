@@ -13,6 +13,7 @@ import {
   InstagramIcon,
 } from "@/components/icons";
 import { useLocale } from "@/lib/i18n/LocaleContext";
+import { useTheme } from "@/lib/theme/ThemeContext";
 
 const FACEBOOK_URL = "https://www.facebook.com/p/Panorama-Properties-100054321169125/";
 const INSTAGRAM_URL = "https://www.instagram.com/panoramapropertiescongo/";
@@ -22,20 +23,32 @@ const TITLE_DELAY = 0.3;
 
 export function AboutContent() {
   const { t } = useLocale();
+  const { theme } = useTheme();
   const taglineDelay = animatedTextDuration(t.about.title, TITLE_STAGGER, TITLE_DELAY) - 0.2;
+  const isDay = theme === "day";
 
   return (
     <main className="bg-[var(--bg)]">
       <div className="relative overflow-hidden bg-[#0a0a0a]">
         <Image
-          src="/images/about-bg.jpg"
-          alt="Panorama Properties architectural blueprint"
+          key={theme}
+          src={isDay ? "/images/about-bg-day.jpg" : "/images/about-bg.jpg"}
+          alt="Panorama Properties architectural sketch"
           fill
           priority
           sizes="100vw"
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/75 to-black/50" />
+        <div
+          className={
+            isDay
+              ? "absolute inset-0 bg-white/55"
+              : "absolute inset-0 bg-gradient-to-t from-black via-black/75 to-black/50"
+          }
+        />
+        {isDay && (
+          <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-black/55 to-transparent" />
+        )}
         <Nav />
         <div className="relative px-8 pb-24 pt-8 text-center md:px-16">
           <motion.p
@@ -46,7 +59,7 @@ export function AboutContent() {
           >
             {t.about.eyebrow}
           </motion.p>
-          <h1 className="mt-4 text-4xl font-light text-white md:text-5xl">
+          <h1 className="mt-4 text-4xl font-light text-[var(--text-primary)] md:text-5xl">
             <AnimatedText
               text={t.about.title}
               stagger={TITLE_STAGGER}
@@ -58,7 +71,7 @@ export function AboutContent() {
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: taglineDelay }}
-            className="mx-auto mt-4 max-w-xl text-sm text-white/50"
+            className="mx-auto mt-4 max-w-xl text-sm text-[var(--text-secondary)]"
           >
             {t.about.intro}
           </motion.p>
@@ -70,10 +83,10 @@ export function AboutContent() {
           >
             {t.about.stats.map((stat) => (
               <div key={stat.label}>
-                <p className="text-2xl font-light text-white md:text-3xl">
+                <p className="text-2xl font-light text-[var(--text-primary)] md:text-3xl">
                   {stat.value}
                 </p>
-                <p className="mt-1 max-w-[8rem] text-[10px] tracking-wide text-white/40">
+                <p className="mt-1 max-w-[8rem] text-[10px] tracking-wide text-[var(--text-muted)]">
                   {stat.label}
                 </p>
               </div>

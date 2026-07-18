@@ -7,6 +7,7 @@ import { Logo } from "@/components/Logo";
 import { Footer } from "@/components/Footer";
 import { DevelopmentsShowcase } from "@/components/DevelopmentsShowcase";
 import { useLocale } from "@/lib/i18n/LocaleContext";
+import { useTheme } from "@/lib/theme/ThemeContext";
 import { projects } from "@/lib/projects";
 import {
   FacebookIcon,
@@ -30,6 +31,8 @@ const featureKeys = [
 
 export default function Home() {
   const { t } = useLocale();
+  const { theme } = useTheme();
+  const isDay = theme === "day";
 
   return (
     <main>
@@ -182,13 +185,18 @@ export default function Home() {
 
       <section className="relative overflow-hidden">
         <Image
-          src="/images/about-bg.jpg"
-          alt="Panorama Properties architectural blueprint"
+          key={theme}
+          src={isDay ? "/images/about-bg-day.jpg" : "/images/about-bg.jpg"}
+          alt="Panorama Properties architectural sketch"
           fill
           sizes="100vw"
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-black/80" />
+        <div
+          className={
+            isDay ? "absolute inset-0 bg-white/60" : "absolute inset-0 bg-black/80"
+          }
+        />
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -199,19 +207,19 @@ export default function Home() {
           <p className="text-xs tracking-[0.4em] text-[#d92b25]">
             {t.about.eyebrow}
           </p>
-          <h2 className="mt-4 text-3xl font-light text-white md:text-4xl">
+          <h2 className="mt-4 text-3xl font-light text-[var(--text-primary)] md:text-4xl">
             {t.about.homeHeading}
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-sm text-white/50">
+          <p className="mx-auto mt-4 max-w-xl text-sm text-[var(--text-secondary)]">
             {t.about.intro}
           </p>
           <div className="mx-auto mt-10 flex max-w-xl justify-center gap-10 sm:gap-16">
             {t.about.stats.map((stat) => (
               <div key={stat.label}>
-                <p className="text-2xl font-light text-white md:text-3xl">
+                <p className="text-2xl font-light text-[var(--text-primary)] md:text-3xl">
                   {stat.value}
                 </p>
-                <p className="mt-1 max-w-[8rem] text-[10px] tracking-wide text-white/40">
+                <p className="mt-1 max-w-[8rem] text-[10px] tracking-wide text-[var(--text-muted)]">
                   {stat.label}
                 </p>
               </div>
