@@ -7,6 +7,7 @@ const mark = (
   <svg viewBox="0 0 100 70" fill="none" stroke="currentColor" strokeLinecap="round">
     <path d="M12 40 L40 14 M22 40 L44 20 M32 40 L48 26" strokeWidth="3" />
     <path d="M40 14 L68 40" strokeWidth="3" />
+    <path d="M10 40 L72 40" strokeWidth="3" />
     <path d="M68 12 L68 40 L80 40 L80 8 L68 8" strokeWidth="3" strokeLinejoin="round" />
     <path d="M50 40 L50 52" strokeWidth="3" />
   </svg>
@@ -15,6 +16,7 @@ const mark = (
 const markPaths = [
   "M12 40 L40 14 M22 40 L44 20 M32 40 L48 26",
   "M40 14 L68 40",
+  "M10 40 L72 40",
   "M68 12 L68 40 L80 40 L80 8 L68 8",
   "M50 40 L50 52",
 ];
@@ -33,7 +35,7 @@ function AnimatedMark() {
           key={d}
           d={d}
           strokeWidth="3"
-          strokeLinejoin={i === 2 ? "round" : undefined}
+          strokeLinejoin={i === 3 ? "round" : undefined}
           initial={{ pathLength: 0, opacity: 0 }}
           animate={{ pathLength: 1, opacity: 1 }}
           transition={{
