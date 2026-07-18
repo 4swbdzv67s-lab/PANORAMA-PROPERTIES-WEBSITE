@@ -1,9 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Nav } from "@/components/Nav";
 import { Logo } from "@/components/Logo";
 import { Footer } from "@/components/Footer";
+import { DevelopmentsShowcase } from "@/components/DevelopmentsShowcase";
 import { projects } from "@/lib/projects";
 import {
   FacebookIcon,
@@ -45,29 +47,15 @@ export default function Home() {
   return (
     <main>
       <section className="relative flex min-h-screen flex-col overflow-hidden bg-[#0a0a0a]">
-        {/* Placeholder background — swap for the real hero photo in /public */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_25%,#3a3f4a_0%,#15171b_45%,#050506_100%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(0,0,0,0.95),rgba(0,0,0,0.15)_45%,rgba(0,0,0,0.55))]" />
-        <svg
-          className="absolute inset-x-0 bottom-0 h-40 w-full text-black/60"
-          viewBox="0 0 1600 160"
-          preserveAspectRatio="none"
-          fill="currentColor"
-        >
-          <rect x="0" y="80" width="120" height="80" />
-          <rect x="130" y="40" width="90" height="120" />
-          <rect x="230" y="100" width="140" height="60" />
-          <rect x="380" y="20" width="70" height="140" />
-          <rect x="460" y="70" width="160" height="90" />
-          <rect x="630" y="50" width="100" height="110" />
-          <rect x="740" y="90" width="180" height="70" />
-          <rect x="930" y="30" width="80" height="130" />
-          <rect x="1020" y="75" width="150" height="85" />
-          <rect x="1180" y="55" width="100" height="105" />
-          <rect x="1290" y="95" width="140" height="65" />
-          <rect x="1440" y="35" width="90" height="125" />
-          <rect x="1540" y="85" width="60" height="75" />
-        </svg>
+        <Image
+          src="/images/homepage-hero-bg.jpg"
+          alt="Panorama Properties development at dusk"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(0,0,0,0.9),rgba(0,0,0,0.25)_45%,rgba(0,0,0,0.6))]" />
 
         <Nav />
 
@@ -182,28 +170,7 @@ export default function Home() {
         >
           Our Developments
         </motion.h2>
-        <div className="grid gap-6 md:grid-cols-3">
-          {projects.map((project, i) => (
-            <motion.a
-              key={project.slug}
-              href={`/developments/${project.slug}`}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: i * 0.15 }}
-              className="relative block aspect-[4/5] overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-[#3d3d3d] to-[#141414] transition hover:border-[#d92b25]/50"
-            >
-              <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/70 via-black/10 to-transparent p-6">
-                <h3 className="text-xl font-medium text-white">
-                  {project.name}
-                </h3>
-                <p className="mt-1 text-sm text-white/60">
-                  {project.tagline}
-                </p>
-              </div>
-            </motion.a>
-          ))}
-        </div>
+        <DevelopmentsShowcase projects={projects} />
       </section>
 
       <Footer />

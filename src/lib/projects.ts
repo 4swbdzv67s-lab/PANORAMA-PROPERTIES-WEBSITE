@@ -52,4 +52,18 @@ export const projects: Project[] = [
       "Steps from the city center",
     ],
   },
+  {
+    slug: "kimpika",
+    name: "Kimpika",
+    tagline: "Where community meets craftsmanship",
+    status: "Coming Soon",
+    description:
+      "A neighborhood-scale development built around shared green space, walkable streets, and homes designed to last generations.",
+    highlights: [
+      "Central green and community park",
+      "Walkable, tree-lined streets",
+      "Family-sized floor plans",
+      "On-site retail and amenities",
+    ],
+  },
 ];

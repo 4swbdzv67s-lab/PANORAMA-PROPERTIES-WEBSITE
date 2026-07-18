@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { projects } from "@/lib/projects";
@@ -27,7 +28,7 @@ export default function Developments() {
       </div>
 
       <section className="px-8 py-16 md:px-16">
-        <div className="grid gap-8 md:grid-cols-3">
+        <div className="grid gap-8 md:grid-cols-2">
           {projects.map((project, i) => (
             <motion.a
               key={project.slug}
@@ -38,7 +39,16 @@ export default function Developments() {
               transition={{ duration: 0.6, delay: i * 0.1 }}
               className="group block overflow-hidden rounded-2xl border border-white/10 transition hover:border-[#d92b25]/50"
             >
-              <div className="relative aspect-[4/3] bg-gradient-to-br from-[#3d3d3d] to-[#141414]">
+              <div className="relative aspect-video bg-gradient-to-br from-[#3d3d3d] to-[#141414]">
+                {project.heroImage && (
+                  <Image
+                    src={project.heroImage}
+                    alt={project.name}
+                    fill
+                    sizes="(min-width: 768px) 50vw, 100vw"
+                    className="object-cover"
+                  />
+                )}
                 <span
                   className={`absolute left-4 top-4 rounded-full px-3 py-1 text-[10px] font-medium tracking-widest ${
                     project.status === "Now Selling"
