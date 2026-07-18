@@ -146,10 +146,22 @@ export function Nav() {
             <LanguageToggle className="mt-2" />
 
             <div className="mt-4 flex items-center gap-6 text-white/60">
-              <a href="#" aria-label="Facebook" className="transition hover:text-white">
+              <a
+                href="https://www.facebook.com/p/Panorama-Properties-100054321169125/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="transition hover:text-white"
+              >
                 <FacebookIcon className="h-5 w-5" />
               </a>
-              <a href="#" aria-label="Instagram" className="transition hover:text-white">
+              <a
+                href="https://www.instagram.com/panoramapropertiescongo/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="transition hover:text-white"
+              >
                 <InstagramIcon className="h-5 w-5" />
               </a>
               <a href="#" aria-label="LinkedIn" className="transition hover:text-white">

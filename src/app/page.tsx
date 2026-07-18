@@ -49,10 +49,22 @@ export default function Home() {
 
         <div className="relative flex flex-1 items-center justify-center px-6">
           <div className="absolute left-8 top-1/2 hidden -translate-y-1/2 flex-col items-center gap-6 text-white/60 xl:flex">
-            <a href="#" aria-label="Facebook" className="transition hover:text-white">
+            <a
+              href="https://www.facebook.com/p/Panorama-Properties-100054321169125/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              className="transition hover:text-white"
+            >
               <FacebookIcon className="h-4 w-4" />
             </a>
-            <a href="#" aria-label="Instagram" className="transition hover:text-white">
+            <a
+              href="https://www.instagram.com/panoramapropertiescongo/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="transition hover:text-white"
+            >
               <InstagramIcon className="h-4 w-4" />
             </a>
             <a href="#" aria-label="LinkedIn" className="transition hover:text-white">

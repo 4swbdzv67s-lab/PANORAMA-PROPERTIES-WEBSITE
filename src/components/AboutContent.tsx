@@ -5,8 +5,17 @@ import { motion } from "framer-motion";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { AnimatedText, animatedTextDuration } from "@/components/AnimatedText";
-import { MapPinIcon, PhoneIcon, MailIcon } from "@/components/icons";
+import {
+  MapPinIcon,
+  PhoneIcon,
+  MailIcon,
+  FacebookIcon,
+  InstagramIcon,
+} from "@/components/icons";
 import { useLocale } from "@/lib/i18n/LocaleContext";
+
+const FACEBOOK_URL = "https://www.facebook.com/p/Panorama-Properties-100054321169125/";
+const INSTAGRAM_URL = "https://www.instagram.com/panoramapropertiescongo/";
 
 const TITLE_STAGGER = 0.03;
 const TITLE_DELAY = 0.3;
@@ -53,6 +62,23 @@ export function AboutContent() {
           >
             {t.about.intro}
           </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: taglineDelay + 0.3 }}
+            className="mx-auto mt-10 flex max-w-xl justify-center gap-10 sm:gap-16"
+          >
+            {t.about.stats.map((stat) => (
+              <div key={stat.label}>
+                <p className="text-2xl font-light text-white md:text-3xl">
+                  {stat.value}
+                </p>
+                <p className="mt-1 max-w-[8rem] text-[10px] tracking-wide text-white/40">
+                  {stat.label}
+                </p>
+              </div>
+            ))}
+          </motion.div>
         </div>
       </div>
 
@@ -100,6 +126,8 @@ export function AboutContent() {
                 </p>
                 <p className="mt-1 text-sm text-[var(--text-secondary)]">
                   {t.about.phone}
+                  <br />
+                  {t.about.phoneSecondary}
                 </p>
               </div>
             </div>
@@ -114,6 +142,29 @@ export function AboutContent() {
                 </p>
               </div>
             </div>
+          </div>
+          <div className="mt-10 flex items-center gap-4 border-t border-[var(--border-color)] pt-8">
+            <p className="text-xs tracking-widest text-[var(--text-muted)]">
+              {t.about.socialTitle.toUpperCase()}
+            </p>
+            <a
+              href={FACEBOOK_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              className="text-[var(--text-secondary)] transition hover:text-[#d92b25]"
+            >
+              <FacebookIcon className="h-4 w-4" />
+            </a>
+            <a
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="text-[var(--text-secondary)] transition hover:text-[#d92b25]"
+            >
+              <InstagramIcon className="h-4 w-4" />
+            </a>
           </div>
         </div>
       </section>

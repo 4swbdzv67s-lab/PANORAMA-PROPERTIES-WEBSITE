@@ -57,7 +57,12 @@ export const translations = {
       eyebrow: "ABOUT US",
       title: "About Panorama Properties",
       intro:
-        "We're building Africa's next generation of real estate experiences — where architecture, technology, and storytelling meet.",
+        "Founded in 2004, Panorama Properties has grown into one of the leading names in Congolese real estate — developing residential communities in Kinshasa and Lubumbashi.",
+      stats: [
+        { value: "2004", label: "Founded" },
+        { value: "2", label: "Cities — Kinshasa & Lubumbashi" },
+        { value: "4+", label: "Developments" },
+      ],
       missionTitle: "Our Mission",
       missionText:
         "We design and deliver developments that respect how people actually want to live — pairing thoughtful architecture with technology and a transparent process, from first walkthrough to final handover.",
@@ -66,11 +71,13 @@ export const translations = {
         "To become Africa's leading digital real estate experience platform, combining architecture, technology, and storytelling into one seamless experience.",
       contactTitle: "Get in Touch",
       addressLabel: "Address",
-      address: "[Street address, city, country]",
+      address: "83 Avenue de la Justice, Gombe, Kinshasa, DR Congo",
       phoneLabel: "Phone",
-      phone: "[+000 000 000 000]",
+      phone: "+243 81 986 20 72",
+      phoneSecondary: "+243 99 862 07 23",
       emailLabel: "Email",
-      email: "info@panoramaproperties.com",
+      email: "[Add your official contact email]",
+      socialTitle: "Follow Us",
     },
     footer: {
       rights: "All Rights Reserved.",
@@ -140,7 +147,12 @@ export const translations = {
       eyebrow: "À PROPOS",
       title: "À propos de Panorama Properties",
       intro:
-        "Nous construisons la nouvelle génération de l'immobilier en Afrique — là où l'architecture, la technologie et le storytelling se rencontrent.",
+        "Fondée en 2004, Panorama Properties est devenue l'un des noms incontournables de l'immobilier congolais — développant des communautés résidentielles à Kinshasa et à Lubumbashi.",
+      stats: [
+        { value: "2004", label: "Fondée en" },
+        { value: "2", label: "Villes — Kinshasa et Lubumbashi" },
+        { value: "4+", label: "Projets" },
+      ],
       missionTitle: "Notre Mission",
       missionText:
         "Nous concevons et livrons des projets qui respectent la façon dont les gens veulent vraiment vivre — alliant une architecture réfléchie à la technologie et un processus transparent, du premier rendez-vous à la remise des clés.",
@@ -149,11 +161,13 @@ export const translations = {
         "Devenir la première plateforme d'expérience immobilière numérique en Afrique, alliant architecture, technologie et storytelling en une seule expérience.",
       contactTitle: "Nous Contacter",
       addressLabel: "Adresse",
-      address: "[Adresse, ville, pays]",
+      address: "83 Avenue de la Justice, Gombe, Kinshasa, RD Congo",
       phoneLabel: "Téléphone",
-      phone: "[+000 000 000 000]",
+      phone: "+243 81 986 20 72",
+      phoneSecondary: "+243 99 862 07 23",
       emailLabel: "E-mail",
-      email: "info@panoramaproperties.com",
+      email: "[Ajoutez votre e-mail de contact officiel]",
+      socialTitle: "Suivez-nous",
     },
     footer: {
       rights: "Tous Droits Réservés.",
