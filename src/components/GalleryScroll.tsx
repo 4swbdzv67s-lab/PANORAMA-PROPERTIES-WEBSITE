@@ -43,18 +43,19 @@ export function GalleryScroll({ slides }: { slides: GalleryImage[] }) {
     <div ref={containerRef} className="relative overflow-hidden bg-black">
       <div
         ref={trackRef}
-        className="flex h-[60vh] w-max items-center gap-4 px-8 md:h-[70vh] md:px-16"
+        className="flex h-[65vh] w-max items-stretch md:h-[85vh]"
       >
         {slides.map((slide, i) => (
           <div
             key={slide.src + i}
-            className="relative h-[85%] w-[75vw] shrink-0 overflow-hidden rounded-2xl border border-white/10 md:w-[42vw]"
+            className="relative h-full shrink-0"
+            style={{ aspectRatio: `${slide.width} / ${slide.height}` }}
           >
             <Image
               src={slide.src}
               alt={slide.alt}
               fill
-              sizes="(min-width: 768px) 42vw, 75vw"
+              sizes="100vh"
               className="object-cover"
               priority={i < 2}
             />
