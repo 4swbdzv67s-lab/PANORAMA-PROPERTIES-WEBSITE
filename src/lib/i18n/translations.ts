@@ -55,6 +55,8 @@ export const translations = {
     },
     about: {
       eyebrow: "ABOUT US",
+      homeHeading: "Who We Are",
+      learnMore: "LEARN MORE",
       title: "About Panorama Properties",
       intro:
         "Founded in 2004, Panorama Properties has grown into one of the leading names in Congolese real estate — developing residential communities in Kinshasa and Lubumbashi.",
@@ -145,6 +147,8 @@ export const translations = {
     },
     about: {
       eyebrow: "À PROPOS",
+      homeHeading: "Qui Sommes-Nous",
+      learnMore: "EN SAVOIR PLUS",
       title: "À propos de Panorama Properties",
       intro:
         "Fondée en 2004, Panorama Properties est devenue l'un des noms incontournables de l'immobilier congolais — développant des communautés résidentielles à Kinshasa et à Lubumbashi.",

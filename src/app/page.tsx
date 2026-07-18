@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Nav } from "@/components/Nav";
 import { Logo } from "@/components/Logo";
 import { Footer } from "@/components/Footer";
@@ -177,6 +178,53 @@ export default function Home() {
           {t.developments.heading}
         </motion.h2>
         <DevelopmentsShowcase projects={projects} />
+      </section>
+
+      <section className="relative overflow-hidden">
+        <Image
+          src="/images/about-bg.jpg"
+          alt="Panorama Properties architectural blueprint"
+          fill
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-black/80" />
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="relative px-8 py-24 text-center md:px-16"
+        >
+          <p className="text-xs tracking-[0.4em] text-[#d92b25]">
+            {t.about.eyebrow}
+          </p>
+          <h2 className="mt-4 text-3xl font-light text-white md:text-4xl">
+            {t.about.homeHeading}
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl text-sm text-white/50">
+            {t.about.intro}
+          </p>
+          <div className="mx-auto mt-10 flex max-w-xl justify-center gap-10 sm:gap-16">
+            {t.about.stats.map((stat) => (
+              <div key={stat.label}>
+                <p className="text-2xl font-light text-white md:text-3xl">
+                  {stat.value}
+                </p>
+                <p className="mt-1 max-w-[8rem] text-[10px] tracking-wide text-white/40">
+                  {stat.label}
+                </p>
+              </div>
+            ))}
+          </div>
+          <a
+            href="/about"
+            className="mt-10 inline-flex items-center gap-3 rounded-full border border-[#d92b25]/70 bg-black/30 px-8 py-3 text-sm font-medium tracking-wide text-white transition hover:bg-[#d92b25]"
+          >
+            {t.about.learnMore}
+            <ArrowIcon className="h-4 w-4" />
+          </a>
+        </motion.div>
       </section>
 
       <Footer />
