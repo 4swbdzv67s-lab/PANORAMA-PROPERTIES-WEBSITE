@@ -45,26 +45,26 @@ export const projects: Project[] = [
   {
     slug: "malaika",
     name: "Malaika",
-    tagline: "Lubumbashi's future luxury neighborhood",
+    tagline: "Kinshasa's gated townhouse community",
     status: "Now Selling",
     description:
-      "Residence Malaika is a gated townhouse community taking shape in Lubumbashi, with secured entry, finished model homes, and land plots available to reserve through Malaika City's dedicated digital buyer portal.",
+      "Residence Malaika is a gated townhouse community in Kinshasa, offering finished modern homes with secured entry and private patios.",
     heroImage: "/images/malaika/render-06-gate-white.jpg",
     highlights: [
-      "Located in Lubumbashi",
+      "Located in Kinshasa",
       "Gated entrance with on-site security",
       "Modern townhouse interiors with private patios",
-      "Secure plot purchase via a dedicated buyer portal",
+      "Move-in ready model homes",
     ],
     fr: {
-      tagline: "Le futur quartier de luxe de Lubumbashi",
+      tagline: "La communauté résidentielle sécurisée de Kinshasa",
       description:
-        "Résidence Malaika est une communauté résidentielle sécurisée qui prend forme à Lubumbashi, avec entrée gardée, maisons témoins finies, et parcelles disponibles à la réservation via le portail acheteur dédié de Malaika City.",
+        "Résidence Malaika est une communauté résidentielle sécurisée à Kinshasa, offrant des maisons modernes finies avec entrée gardée et patios privés.",
       highlights: [
-        "Situé à Lubumbashi",
+        "Situé à Kinshasa",
         "Entrée sécurisée avec surveillance sur place",
         "Intérieurs modernes avec patios privés",
-        "Achat sécurisé de parcelles via un portail dédié",
+        "Maisons témoins prêtes à emménager",
       ],
     },
   },
