@@ -1,13 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { Nav } from "@/components/Nav";
 import { Logo } from "@/components/Logo";
 import { Footer } from "@/components/Footer";
 import { DevelopmentsShowcase } from "@/components/DevelopmentsShowcase";
 import { useLocale } from "@/lib/i18n/LocaleContext";
-import { useTheme } from "@/lib/theme/ThemeContext";
 import { projects } from "@/lib/projects";
 import {
   FacebookIcon,
@@ -31,25 +29,20 @@ const featureKeys = [
 
 export default function Home() {
   const { t } = useLocale();
-  const { theme } = useTheme();
-
-  const heroBg =
-    theme === "night"
-      ? "/images/homepage-hero-bg.jpg"
-      : "/images/golf-kabulameshi/hero.jpg";
 
   return (
     <main>
       <section className="relative flex min-h-screen flex-col overflow-hidden bg-[#0a0a0a]">
-        <Image
-          key={heroBg}
-          src={heroBg}
-          alt="Panorama Properties development"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
-        />
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster="/images/homepage-hero-bg.jpg"
+          className="absolute inset-0 h-full w-full object-cover"
+        >
+          <source src="/videos/homepage-hero.mp4" type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(0,0,0,0.9),rgba(0,0,0,0.25)_45%,rgba(0,0,0,0.6))]" />
 
         <Nav />
