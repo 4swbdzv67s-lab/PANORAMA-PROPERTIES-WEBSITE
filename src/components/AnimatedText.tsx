@@ -1,6 +1,7 @@
 "use client";
 
-import { motion, type Variants, type CSSProperties } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
+import type { CSSProperties } from "react";
 
 const container: Variants = {
   hidden: {},
