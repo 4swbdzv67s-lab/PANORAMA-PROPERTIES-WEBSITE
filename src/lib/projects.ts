@@ -136,6 +136,7 @@ export const projects: Project[] = [
     status: "Available to Rent",
     category: "listing",
     listingType: "rent",
+    heroImage: "/images/kalemi-lake-view/render-01-aerial-lakefront.jpg",
     description:
       "Kalemi Lake View offers modern apartment units close to the water, with secure building access and easy access to local amenities.",
     highlights: [
