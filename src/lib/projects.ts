@@ -220,6 +220,7 @@ export const projects: Project[] = [
     status: "Available to Rent",
     category: "listing",
     listingType: "rent",
+    heroImage: "/images/ngaliema-apartments/render-01-exterior-row.jpg",
     description:
       "Ngaliema Apartments offers modern apartment units in Kinshasa's Ngaliema commune, in a quiet residential setting.",
     highlights: [

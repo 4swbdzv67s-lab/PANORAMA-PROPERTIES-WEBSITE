@@ -13,6 +13,7 @@ import { renders as amethysteRenders } from "@/lib/amethyste-gallery";
 import { renders as hewaBoraRenders } from "@/lib/hewa-bora-gallery";
 import { renders as kalemiLakeViewRenders } from "@/lib/kalemi-lake-view-gallery";
 import { renders as gombeApartmentsRenders } from "@/lib/gombe-apartments-gallery";
+import { renders as ngaliemaApartmentsRenders } from "@/lib/ngaliema-apartments-gallery";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -53,6 +54,11 @@ const galleryBySlug: Record<string, GalleryEntry> = {
   "gombe-apartments": {
     galleryDay: gombeApartmentsRenders,
     galleryNight: gombeApartmentsRenders,
+    plans: null,
+  },
+  "ngaliema-apartments": {
+    galleryDay: ngaliemaApartmentsRenders,
+    galleryNight: ngaliemaApartmentsRenders,
     plans: null,
   },
 };
