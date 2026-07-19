@@ -72,7 +72,13 @@ export default function Home() {
             >
               <InstagramIcon className="h-4 w-4" />
             </a>
-            <a href="#" aria-label="LinkedIn" className="transition hover:text-white">
+            <a
+              href="https://www.linkedin.com/company/panorama-properties-drc/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className="transition hover:text-white"
+            >
               <LinkedInIcon className="h-4 w-4" />
             </a>
             <span className="h-16 w-px bg-white/20" />

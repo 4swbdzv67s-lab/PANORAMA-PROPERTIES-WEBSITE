@@ -86,7 +86,7 @@ export const translations = {
       phone: "+243 81 986 20 72",
       phoneSecondary: "+243 99 862 07 23",
       emailLabel: "Email",
-      email: "[Add your official contact email]",
+      email: "info@panoramaproperties.cd",
       socialTitle: "Follow Us",
     },
     properties: {
@@ -215,7 +215,7 @@ export const translations = {
       phone: "+243 81 986 20 72",
       phoneSecondary: "+243 99 862 07 23",
       emailLabel: "E-mail",
-      email: "[Ajoutez votre e-mail de contact officiel]",
+      email: "info@panoramaproperties.cd",
       socialTitle: "Suivez-nous",
     },
     properties: {
