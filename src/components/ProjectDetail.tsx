@@ -63,14 +63,16 @@ export function ProjectDetail({ project, galleryDay, galleryNight, plans }: Prop
         <div className="relative px-8 pb-24 pt-4 md:px-16">
           <motion.a
             key={`crumb-${project.slug}`}
-            href="/developments"
+            href={project.category === "commercial" ? "/commercial" : "/developments"}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
             className="inline-flex items-center gap-2 text-xs tracking-widest text-white/50 transition hover:text-white"
           >
             <ArrowIcon className="h-3.5 w-3.5 rotate-180" />
-            {t.developments.allDevelopments}
+            {project.category === "commercial"
+              ? t.commercial.allCommercial
+              : t.developments.allDevelopments}
           </motion.a>
           <motion.span
             key={`badge-${project.slug}`}

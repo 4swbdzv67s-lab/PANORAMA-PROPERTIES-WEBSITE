@@ -3,7 +3,7 @@ export type Project = {
   name: string;
   tagline: string;
   status: "Now Selling" | "Coming Soon" | "Available to Rent";
-  category: "development" | "listing";
+  category: "development" | "listing" | "commercial";
   listingType: "rent" | "sale";
   description: string;
   highlights: string[];
@@ -107,7 +107,7 @@ export const projects: Project[] = [
     name: "Kimpika",
     tagline: "Secure short-term parking for heavy trucks",
     status: "Coming Soon",
-    category: "development",
+    category: "commercial",
     listingType: "sale",
     heroImage: "/images/kimpika/render-02-logistics-yard-aerial.jpg",
     description:

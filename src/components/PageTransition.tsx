@@ -10,8 +10,9 @@ const PAGE_ORDER: Record<string, number> = {
   "/": 0,
   "/properties": 1,
   "/developments": 2,
-  "/about": 3,
-  "/contact": 4,
+  "/commercial": 3,
+  "/about": 4,
+  "/contact": 5,
 };
 
 function orderFor(pathname: string): number | null {

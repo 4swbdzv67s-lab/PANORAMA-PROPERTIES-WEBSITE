@@ -23,8 +23,8 @@ export function PropertiesContent() {
 
   const [mode, setMode] = useState<ListingMode>("sale");
 
-  const saleProjects = projects.filter((p) => p.listingType === "sale");
-  const rentProjects = projects.filter((p) => p.listingType === "rent");
+  const saleProjects = projects.filter((p) => p.category === "development");
+  const rentProjects = projects.filter((p) => p.category === "listing");
 
   const statusLabelFor = (project: (typeof projects)[number]) =>
     project.status === "Now Selling"

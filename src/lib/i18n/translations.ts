@@ -4,6 +4,7 @@ export const translations = {
       home: "HOME",
       properties: "PROPERTIES",
       developments: "DEVELOPMENTS",
+      commercial: "COMMERCIAL",
       about: "ABOUT US",
       contact: "CONTACT",
     },
@@ -52,6 +53,13 @@ export const translations = {
       nowSelling: "NOW SELLING",
       comingSoon: "COMING SOON",
       availableToRent: "AVAILABLE TO RENT",
+    },
+    commercial: {
+      eyebrow: "COMMERCIAL PROJECTS",
+      title: "Commercial",
+      subtitle:
+        "Alongside our residential communities, Panorama Properties also develops commercial and logistics infrastructure.",
+      allCommercial: "ALL COMMERCIAL PROJECTS",
     },
     about: {
       eyebrow: "ABOUT US",
@@ -123,6 +131,7 @@ export const translations = {
       home: "ACCUEIL",
       properties: "PROPRIÉTÉS",
       developments: "PROJETS",
+      commercial: "COMMERCIAL",
       about: "À PROPOS",
       contact: "CONTACT",
     },
@@ -173,6 +182,13 @@ export const translations = {
       nowSelling: "EN VENTE",
       comingSoon: "BIENTÔT DISPONIBLE",
       availableToRent: "DISPONIBLE À LA LOCATION",
+    },
+    commercial: {
+      eyebrow: "PROJETS COMMERCIAUX",
+      title: "Commercial",
+      subtitle:
+        "Aux côtés de nos communautés résidentielles, Panorama Properties développe également des infrastructures commerciales et logistiques.",
+      allCommercial: "TOUS LES PROJETS COMMERCIAUX",
     },
     about: {
       eyebrow: "À PROPOS",

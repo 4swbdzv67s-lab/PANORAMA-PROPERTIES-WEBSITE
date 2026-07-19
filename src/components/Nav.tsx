@@ -21,6 +21,7 @@ const linkKeys = [
   { key: "home", href: "/" },
   { key: "properties", href: "/properties" },
   { key: "developments", href: "/developments" },
+  { key: "commercial", href: "/commercial" },
   { key: "about", href: "/about" },
   { key: "contact", href: "/contact" },
 ] as const;
