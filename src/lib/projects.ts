@@ -2,7 +2,9 @@ export type Project = {
   slug: string;
   name: string;
   tagline: string;
-  status: "Now Selling" | "Coming Soon";
+  status: "Now Selling" | "Coming Soon" | "Available to Rent";
+  category: "development" | "listing";
+  listingType: "rent" | "sale";
   description: string;
   highlights: string[];
   heroImage?: string;
@@ -20,6 +22,8 @@ export const projects: Project[] = [
     name: "Golf Kabulameshi",
     tagline: "Championship living, redefined",
     status: "Now Selling",
+    category: "development",
+    listingType: "sale",
     description:
       "Residences set along a championship golf course, pairing fairway views with modern architecture and resort-style amenities.",
     heroImage: "/images/golf-kabulameshi/hero.jpg",
@@ -47,6 +51,8 @@ export const projects: Project[] = [
     name: "Malaika",
     tagline: "Kinshasa's gated townhouse community",
     status: "Now Selling",
+    category: "development",
+    listingType: "sale",
     description:
       "Residence Malaika is a gated townhouse community in Kinshasa, offering finished modern homes with secured entry and private patios.",
     heroImage: "/images/malaika/render-06-gate-white.jpg",
@@ -73,6 +79,8 @@ export const projects: Project[] = [
     name: "Amethyste",
     tagline: "Modern villas in a gated community",
     status: "Coming Soon",
+    category: "development",
+    listingType: "sale",
     description:
       "Amethyste is a gated community of modern villas, featuring private courtyards, a resident fountain plaza, and dedicated children's play areas.",
     heroImage: "/images/amethyste/render-02-gate-day.jpg",
@@ -99,6 +107,8 @@ export const projects: Project[] = [
     name: "Kimpika",
     tagline: "Where community meets craftsmanship",
     status: "Coming Soon",
+    category: "development",
+    listingType: "sale",
     description:
       "A neighborhood-scale development built around shared green space, walkable streets, and homes designed to last generations.",
     highlights: [
@@ -116,6 +126,114 @@ export const projects: Project[] = [
         "Rues piétonnes bordées d'arbres",
         "Plans adaptés aux familles",
         "Commerces et services sur place",
+      ],
+    },
+  },
+  {
+    slug: "kalemi-lake-view",
+    name: "Kalemi Lake View",
+    tagline: "Apartment living with a view",
+    status: "Available to Rent",
+    category: "listing",
+    listingType: "rent",
+    description:
+      "Kalemi Lake View offers modern apartment units close to the water, with secure building access and easy access to local amenities.",
+    highlights: [
+      "Lake-facing views",
+      "Modern apartment interiors",
+      "Secure building access",
+      "Close to local amenities",
+    ],
+    fr: {
+      tagline: "Un appartement avec vue",
+      description:
+        "Kalemi Lake View propose des appartements modernes proches de l'eau, avec un accès sécurisé à l'immeuble et un accès facile aux commodités locales.",
+      highlights: [
+        "Vue sur le lac",
+        "Intérieurs d'appartement modernes",
+        "Accès sécurisé à l'immeuble",
+        "Proche des commodités locales",
+      ],
+    },
+  },
+  {
+    slug: "gombe-apartments",
+    name: "Gombe Apartments",
+    tagline: "Modern apartments in the heart of Gombe",
+    status: "Available to Rent",
+    category: "listing",
+    listingType: "rent",
+    description:
+      "Gombe Apartments offers modern apartment units in Kinshasa's Gombe commune, within easy reach of the business district.",
+    highlights: [
+      "Located in Gombe",
+      "Close to the business district",
+      "Modern building amenities",
+      "Flexible lease terms",
+    ],
+    fr: {
+      tagline: "Appartements modernes au cœur de Gombe",
+      description:
+        "Gombe Apartments propose des appartements modernes dans la commune de la Gombe à Kinshasa, à proximité du quartier des affaires.",
+      highlights: [
+        "Situé à Gombe",
+        "Proche du quartier des affaires",
+        "Équipements modernes de l'immeuble",
+        "Conditions de location flexibles",
+      ],
+    },
+  },
+  {
+    slug: "hewa-bora",
+    name: "Hewa Bora",
+    tagline: "Contemporary apartment living",
+    status: "Available to Rent",
+    category: "listing",
+    listingType: "rent",
+    description:
+      "Hewa Bora offers contemporary apartment units in a secure residential building, close to schools and local shops.",
+    highlights: [
+      "Contemporary apartment design",
+      "Secure residential building",
+      "Close to schools and shops",
+      "Flexible lease terms",
+    ],
+    fr: {
+      tagline: "Un appartement contemporain",
+      description:
+        "Hewa Bora propose des appartements contemporains dans un immeuble résidentiel sécurisé, à proximité des écoles et des commerces.",
+      highlights: [
+        "Design d'appartement contemporain",
+        "Immeuble résidentiel sécurisé",
+        "Proche des écoles et commerces",
+        "Conditions de location flexibles",
+      ],
+    },
+  },
+  {
+    slug: "ngaliema-apartments",
+    name: "Ngaliema Apartments",
+    tagline: "Apartment living in Ngaliema",
+    status: "Available to Rent",
+    category: "listing",
+    listingType: "rent",
+    description:
+      "Ngaliema Apartments offers modern apartment units in Kinshasa's Ngaliema commune, in a quiet residential setting.",
+    highlights: [
+      "Located in Ngaliema",
+      "Quiet residential setting",
+      "Modern apartment interiors",
+      "Flexible lease terms",
+    ],
+    fr: {
+      tagline: "Un appartement à Ngaliema",
+      description:
+        "Ngaliema Apartments propose des appartements modernes dans la commune de la Ngaliema à Kinshasa, dans un cadre résidentiel calme.",
+      highlights: [
+        "Situé à Ngaliema",
+        "Cadre résidentiel calme",
+        "Intérieurs d'appartement modernes",
+        "Conditions de location flexibles",
       ],
     },
   },

@@ -19,7 +19,11 @@ export function DevelopmentsShowcase({ projects }: { projects: Project[] }) {
 
   const tagline = locale === "fr" ? project.fr.tagline : project.tagline;
   const statusLabel =
-    project.status === "Now Selling" ? t.developments.nowSelling : t.developments.comingSoon;
+    project.status === "Now Selling"
+      ? t.developments.nowSelling
+      : project.status === "Coming Soon"
+        ? t.developments.comingSoon
+        : t.developments.availableToRent;
   const image =
     theme === "night"
       ? project.heroImageNight ?? project.heroImage

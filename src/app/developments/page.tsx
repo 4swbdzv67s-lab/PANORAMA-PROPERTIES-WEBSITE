@@ -33,7 +33,9 @@ export default function Developments() {
 
       <section className="px-8 py-16 md:px-16">
         <div className="grid gap-8 md:grid-cols-2">
-          {projects.map((project, i) => {
+          {projects
+            .filter((project) => project.category === "development")
+            .map((project, i) => {
             const image =
               theme === "night"
                 ? project.heroImageNight ?? project.heroImage
@@ -44,7 +46,9 @@ export default function Developments() {
             const statusLabel =
               project.status === "Now Selling"
                 ? t.developments.nowSelling
-                : t.developments.comingSoon;
+                : project.status === "Coming Soon"
+                  ? t.developments.comingSoon
+                  : t.developments.availableToRent;
 
             return (
               <motion.a

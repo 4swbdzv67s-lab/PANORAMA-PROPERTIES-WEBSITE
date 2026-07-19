@@ -181,7 +181,9 @@ export default function Home() {
         >
           {t.developments.heading}
         </motion.h2>
-        <DevelopmentsShowcase projects={projects} />
+        <DevelopmentsShowcase
+          projects={projects.filter((p) => p.category === "development")}
+        />
       </section>
 
       <section className="relative overflow-hidden">

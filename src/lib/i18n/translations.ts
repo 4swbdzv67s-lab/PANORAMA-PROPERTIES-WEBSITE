@@ -52,6 +52,7 @@ export const translations = {
       siteAndMasterplan: "SITE & MASTERPLAN",
       nowSelling: "NOW SELLING",
       comingSoon: "COMING SOON",
+      availableToRent: "AVAILABLE TO RENT",
     },
     about: {
       eyebrow: "ABOUT US",
@@ -173,6 +174,7 @@ export const translations = {
       siteAndMasterplan: "PLAN DU SITE",
       nowSelling: "EN VENTE",
       comingSoon: "BIENTÔT DISPONIBLE",
+      availableToRent: "DISPONIBLE À LA LOCATION",
     },
     about: {
       eyebrow: "À PROPOS",

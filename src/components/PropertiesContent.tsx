@@ -23,6 +23,16 @@ export function PropertiesContent() {
 
   const [mode, setMode] = useState<ListingMode>("sale");
 
+  const saleProjects = projects.filter((p) => p.listingType === "sale");
+  const rentProjects = projects.filter((p) => p.listingType === "rent");
+
+  const statusLabelFor = (project: (typeof projects)[number]) =>
+    project.status === "Now Selling"
+      ? t.developments.nowSelling
+      : project.status === "Coming Soon"
+        ? t.developments.comingSoon
+        : t.developments.availableToRent;
+
   return (
     <main className="bg-[var(--bg)]">
       <div className="relative overflow-hidden bg-[#0a0a0a]">
@@ -91,12 +101,8 @@ export function PropertiesContent() {
               transition={{ duration: 0.4 }}
               className="mt-12 grid gap-8 md:grid-cols-2"
             >
-              {projects.map((project) => {
+              {saleProjects.map((project) => {
                 const tagline = locale === "fr" ? project.fr.tagline : project.tagline;
-                const statusLabel =
-                  project.status === "Now Selling"
-                    ? t.developments.nowSelling
-                    : t.developments.comingSoon;
                 return (
                   <a
                     key={project.slug}
@@ -120,7 +126,52 @@ export function PropertiesContent() {
                             : "border border-white/30 bg-black/40 text-white/70"
                         }`}
                       >
-                        {statusLabel}
+                        {statusLabelFor(project)}
+                      </span>
+                    </div>
+                    <div className="bg-[var(--bg-elevated)] p-6">
+                      <h3 className="text-xl font-medium text-[var(--text-primary)]">
+                        {project.name}
+                      </h3>
+                      <p className="mt-1 text-sm text-[var(--text-secondary)]">{tagline}</p>
+                      <span className="mt-4 inline-flex items-center gap-2 text-xs font-medium tracking-widest text-[#d92b25]">
+                        {t.properties.siteWalkthrough}
+                        <ArrowIcon className="h-3.5 w-3.5 transition group-hover:translate-x-1" />
+                      </span>
+                    </div>
+                  </a>
+                );
+              })}
+            </motion.div>
+          ) : rentProjects.length > 0 ? (
+            <motion.div
+              key="rent"
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -16 }}
+              transition={{ duration: 0.4 }}
+              className="mt-12 grid gap-8 md:grid-cols-2"
+            >
+              {rentProjects.map((project) => {
+                const tagline = locale === "fr" ? project.fr.tagline : project.tagline;
+                return (
+                  <a
+                    key={project.slug}
+                    href={`/developments/${project.slug}#gallery`}
+                    className="group block overflow-hidden rounded-2xl border border-[var(--border-color)] transition hover:border-[#d92b25]/50"
+                  >
+                    <div className="relative aspect-video bg-gradient-to-br from-[var(--card-from)] to-[var(--card-to)]">
+                      {project.heroImage && (
+                        <Image
+                          src={project.heroImage}
+                          alt={project.name}
+                          fill
+                          sizes="(min-width: 768px) 50vw, 100vw"
+                          className="object-cover"
+                        />
+                      )}
+                      <span className="absolute left-4 top-4 rounded-full border border-white/30 bg-black/40 px-3 py-1 text-[10px] font-medium tracking-widest text-white/70">
+                        {statusLabelFor(project)}
                       </span>
                     </div>
                     <div className="bg-[var(--bg-elevated)] p-6">
@@ -139,7 +190,7 @@ export function PropertiesContent() {
             </motion.div>
           ) : (
             <motion.div
-              key="rent"
+              key="rent-empty"
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -16 }}

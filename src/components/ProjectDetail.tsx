@@ -30,7 +30,11 @@ export function ProjectDetail({ project, galleryDay, galleryNight, plans }: Prop
   const description = locale === "fr" ? project.fr.description : project.description;
   const highlights = locale === "fr" ? project.fr.highlights : project.highlights;
   const statusLabel =
-    project.status === "Now Selling" ? t.developments.nowSelling : t.developments.comingSoon;
+    project.status === "Now Selling"
+      ? t.developments.nowSelling
+      : project.status === "Coming Soon"
+        ? t.developments.comingSoon
+        : t.developments.availableToRent;
   const heroImage =
     theme === "night" ? project.heroImageNight ?? project.heroImage : project.heroImage;
   const gallery =
