@@ -10,6 +10,7 @@ import {
 } from "@/lib/golf-kabulameshi-gallery";
 import { renders as malaikaRenders } from "@/lib/malaika-gallery";
 import { renders as amethysteRenders } from "@/lib/amethyste-gallery";
+import { renders as hewaBoraRenders } from "@/lib/hewa-bora-gallery";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -35,6 +36,11 @@ const galleryBySlug: Record<string, GalleryEntry> = {
     // Same renders regardless of theme — Amethyste only has day/rain-lit shots.
     galleryDay: amethysteRenders,
     galleryNight: amethysteRenders,
+    plans: null,
+  },
+  "hewa-bora": {
+    galleryDay: hewaBoraRenders,
+    galleryNight: hewaBoraRenders,
     plans: null,
   },
 };

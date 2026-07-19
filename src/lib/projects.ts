@@ -190,6 +190,7 @@ export const projects: Project[] = [
     status: "Available to Rent",
     category: "listing",
     listingType: "rent",
+    heroImage: "/images/hewa-bora/render-01-exterior-facade.jpg",
     description:
       "Hewa Bora offers contemporary apartment units in a secure residential building, close to schools and local shops.",
     highlights: [
