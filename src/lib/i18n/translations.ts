@@ -81,6 +81,18 @@ export const translations = {
       email: "[Add your official contact email]",
       socialTitle: "Follow Us",
     },
+    properties: {
+      eyebrow: "WHO WE ARE",
+      title: "Our Properties",
+      intro:
+        "Panorama Properties designs, builds, and manages residential communities across the Congo. Every listing below links through to a full site walkthrough — explore the gallery before you visit in person.",
+      forRent: "For Rent",
+      forSale: "For Sale",
+      siteWalkthrough: "SITE WALKTHROUGH",
+      rentEmptyTitle: "No rental listings yet",
+      rentEmptyText:
+        "We don't have rental units available at the moment. Check back soon, or contact us to be notified when new listings open.",
+    },
     contact: {
       eyebrow: "CONTACT US",
       title: "Get in Touch",
@@ -189,6 +201,18 @@ export const translations = {
       emailLabel: "E-mail",
       email: "[Ajoutez votre e-mail de contact officiel]",
       socialTitle: "Suivez-nous",
+    },
+    properties: {
+      eyebrow: "QUI SOMMES-NOUS",
+      title: "Nos Propriétés",
+      intro:
+        "Panorama Properties conçoit, construit et gère des communautés résidentielles à travers le Congo. Chaque annonce ci-dessous mène à une visite virtuelle complète — explorez la galerie avant votre visite sur place.",
+      forRent: "À Louer",
+      forSale: "À Vendre",
+      siteWalkthrough: "VISITE DU SITE",
+      rentEmptyTitle: "Aucune location disponible",
+      rentEmptyText:
+        "Nous n'avons pas d'unités locatives disponibles pour le moment. Revenez bientôt, ou contactez-nous pour être averti des nouvelles annonces.",
     },
     contact: {
       eyebrow: "CONTACTEZ-NOUS",

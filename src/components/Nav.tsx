@@ -19,7 +19,7 @@ import {
 
 const linkKeys = [
   { key: "home", href: "/" },
-  { key: "properties", href: "#" },
+  { key: "properties", href: "/properties" },
   { key: "developments", href: "/developments" },
   { key: "services", href: "#" },
   { key: "about", href: "/about" },

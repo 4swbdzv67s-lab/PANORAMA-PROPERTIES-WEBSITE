@@ -150,7 +150,7 @@ export function ProjectDetail({ project, galleryDay, galleryNight, plans }: Prop
       </section>
 
       {gallery && gallery.length > 0 && (
-        <section>
+        <section id="gallery" className="scroll-mt-24">
           <h2 className="px-8 text-sm font-medium tracking-widest text-[var(--text-primary)] md:px-16">
             {t.developments.gallery}
           </h2>
