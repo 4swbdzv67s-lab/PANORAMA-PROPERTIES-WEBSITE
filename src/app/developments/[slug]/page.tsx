@@ -12,6 +12,7 @@ import { renders as malaikaRenders } from "@/lib/malaika-gallery";
 import { renders as amethysteRenders } from "@/lib/amethyste-gallery";
 import { renders as hewaBoraRenders } from "@/lib/hewa-bora-gallery";
 import { renders as kalemiLakeViewRenders } from "@/lib/kalemi-lake-view-gallery";
+import { renders as gombeApartmentsRenders } from "@/lib/gombe-apartments-gallery";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -47,6 +48,11 @@ const galleryBySlug: Record<string, GalleryEntry> = {
   "kalemi-lake-view": {
     galleryDay: kalemiLakeViewRenders,
     galleryNight: kalemiLakeViewRenders,
+    plans: null,
+  },
+  "gombe-apartments": {
+    galleryDay: gombeApartmentsRenders,
+    galleryNight: gombeApartmentsRenders,
     plans: null,
   },
 };

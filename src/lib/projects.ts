@@ -164,6 +164,7 @@ export const projects: Project[] = [
     status: "Available to Rent",
     category: "listing",
     listingType: "rent",
+    heroImage: "/images/gombe-apartments/render-01-living-room-warm.jpg",
     description:
       "Gombe Apartments offers modern apartment units in Kinshasa's Gombe commune, within easy reach of the business district.",
     highlights: [
