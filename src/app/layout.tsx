@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Providers } from "@/components/Providers";
 
-const SITE_URL = "https://www.panoramaproperties.cd";
+const SITE_URL = "https://panorama-properties.vercel.app";
 const SITE_TITLE = "Panorama Properties | Building the Future of Real Estate";
 const SITE_DESCRIPTION =
   "Panorama Properties is a next-generation luxury real estate platform showcasing premium residential and commercial developments through immersive digital experiences.";

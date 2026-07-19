@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { projects } from "@/lib/projects";
 
-const BASE_URL = "https://www.panoramaproperties.cd";
+const BASE_URL = "https://panorama-properties.vercel.app";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
