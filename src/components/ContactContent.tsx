@@ -20,6 +20,10 @@ import { projects } from "@/lib/projects";
 
 const FACEBOOK_URL = "https://www.facebook.com/p/Panorama-Properties-100054321169125/";
 const INSTAGRAM_URL = "https://www.instagram.com/panoramapropertiescongo/";
+const OFFICE_ADDRESS = "83 Avenue de la Justice, Gombe, Kinshasa, DR Congo";
+const MAP_EMBED_SRC = `https://www.google.com/maps?q=${encodeURIComponent(OFFICE_ADDRESS)}&output=embed`;
+
+type FormStatus = "idle" | "sending" | "sent" | "error";
 
 const TITLE_STAGGER = 0.04;
 const TITLE_DELAY = 0.3;
@@ -35,6 +39,7 @@ export function ContactContent() {
   const [phone, setPhone] = useState("");
   const [project, setProject] = useState("");
   const [message, setMessage] = useState("");
+  const [status, setStatus] = useState<FormStatus>("idle");
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -44,9 +49,22 @@ export function ContactContent() {
     }
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setStatus("sending");
     const projectName = projects.find((p) => p.slug === project)?.name;
+
+    try {
+      await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, phone, project: projectName, message }),
+      });
+    } catch {
+      // Best-effort logging endpoint — mailto below is the real delivery
+      // path until a real email provider is wired up server-side.
+    }
+
     const subject = projectName
       ? `Enquiry: ${projectName}`
       : "Enquiry from panoramaproperties.com";
@@ -62,6 +80,16 @@ export function ContactContent() {
       subject,
     )}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
     window.location.href = mailto;
+    setStatus("sent");
+  };
+
+  const resetForm = () => {
+    setName("");
+    setEmail("");
+    setPhone("");
+    setProject("");
+    setMessage("");
+    setStatus("idle");
   };
 
   return (
@@ -115,6 +143,27 @@ export function ContactContent() {
       </div>
 
       <section className="grid gap-8 px-8 py-16 md:grid-cols-3 md:px-16">
+        {status === "sent" ? (
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+            className="flex flex-col items-center justify-center rounded-2xl border border-[var(--border-color)] bg-[var(--bg-elevated)] p-8 text-center md:col-span-2"
+          >
+            <h2 className="text-xl font-light text-[var(--text-primary)]">
+              {t.contact.formSentTitle}
+            </h2>
+            <p className="mx-auto mt-2 max-w-md text-sm text-[var(--text-muted)]">
+              {t.contact.formSentText}
+            </p>
+            <button
+              onClick={resetForm}
+              className="mt-6 inline-flex items-center gap-3 rounded-full border border-[#d92b25]/70 bg-black/30 px-6 py-3 text-sm font-medium tracking-wide text-white transition hover:bg-[#d92b25]"
+            >
+              {t.contact.formSendAnother}
+            </button>
+          </motion.div>
+        ) : (
         <form
           onSubmit={handleSubmit}
           className="rounded-2xl border border-[var(--border-color)] bg-[var(--bg-elevated)] p-8 md:col-span-2"
@@ -176,15 +225,20 @@ export function ContactContent() {
               className="resize-none rounded-lg border border-[var(--border-color)] bg-transparent px-4 py-3 text-sm text-[var(--text-primary)] outline-none transition placeholder:text-[var(--text-muted)] focus:border-[#d92b25]"
             />
           </label>
+          {status === "error" && (
+            <p className="mt-4 text-xs text-[#d92b25]">{t.contact.formError}</p>
+          )}
           <button
             type="submit"
-            className="mt-6 inline-flex items-center gap-3 rounded-full border border-[#d92b25]/70 bg-black/30 px-8 py-3 text-sm font-medium tracking-wide text-white transition hover:bg-[#d92b25]"
+            disabled={status === "sending"}
+            className="mt-6 inline-flex items-center gap-3 rounded-full border border-[#d92b25]/70 bg-black/30 px-8 py-3 text-sm font-medium tracking-wide text-white transition hover:bg-[#d92b25] disabled:cursor-not-allowed disabled:opacity-60"
           >
-            {t.contact.formSubmit}
+            {status === "sending" ? t.contact.formSending : t.contact.formSubmit}
             <ArrowIcon className="h-4 w-4" />
           </button>
           <p className="mt-4 text-xs text-[var(--text-muted)]">{t.contact.formNote}</p>
         </form>
+        )}
 
         <div className="rounded-2xl border border-[var(--border-color)] bg-[var(--bg-elevated)] p-8">
           <h2 className="text-sm font-medium tracking-widest text-[var(--text-primary)]">
@@ -250,6 +304,21 @@ export function ContactContent() {
               <InstagramIcon className="h-4 w-4" />
             </a>
           </div>
+        </div>
+      </section>
+
+      <section className="px-8 pb-16 md:px-16">
+        <h2 className="text-sm font-medium tracking-widest text-[var(--text-primary)]">
+          {t.contact.mapTitle}
+        </h2>
+        <div className="mt-6 overflow-hidden rounded-2xl border border-[var(--border-color)]">
+          <iframe
+            src={MAP_EMBED_SRC}
+            title="Panorama Properties office location"
+            loading="lazy"
+            className="h-80 w-full grayscale-0"
+            style={{ border: 0 }}
+          />
         </div>
       </section>
 

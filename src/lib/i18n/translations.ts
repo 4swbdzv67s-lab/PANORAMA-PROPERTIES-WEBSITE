@@ -114,12 +114,23 @@ export const translations = {
       formMessage: "Message",
       formMessagePlaceholder: "Tell us what you're looking for...",
       formSubmit: "SEND MESSAGE",
+      formSending: "SENDING...",
       formNote:
         "Sending opens your email app with this message pre-filled to our team.",
+      formSentTitle: "Message sent",
+      formSentText:
+        "Thanks for reaching out — your email app should have opened with your message ready to send to our team.",
+      formSendAnother: "Send another message",
+      formError:
+        "Something went wrong. Please try again, or reach us directly using the details on this page.",
       detailsTitle: "Contact Details",
+      mapTitle: "Find Us",
+      orEmailDirectly: "Or email us directly at",
     },
     footer: {
       rights: "All Rights Reserved.",
+      privacyPolicy: "Privacy Policy",
+      termsOfUse: "Terms of Use",
     },
     theme: {
       day: "DAY",
@@ -243,12 +254,23 @@ export const translations = {
       formMessage: "Message",
       formMessagePlaceholder: "Dites-nous ce que vous recherchez...",
       formSubmit: "ENVOYER LE MESSAGE",
+      formSending: "ENVOI EN COURS...",
       formNote:
         "L'envoi ouvre votre application e-mail avec ce message pré-rempli à destination de notre équipe.",
+      formSentTitle: "Message envoyé",
+      formSentText:
+        "Merci de nous avoir contactés — votre application e-mail devrait s'être ouverte avec votre message prêt à être envoyé à notre équipe.",
+      formSendAnother: "Envoyer un autre message",
+      formError:
+        "Une erreur s'est produite. Veuillez réessayer, ou contactez-nous directement grâce aux coordonnées de cette page.",
       detailsTitle: "Coordonnées",
+      mapTitle: "Nous Trouver",
+      orEmailDirectly: "Ou écrivez-nous directement à",
     },
     footer: {
       rights: "Tous Droits Réservés.",
+      privacyPolicy: "Politique de Confidentialité",
+      termsOfUse: "Conditions d'Utilisation",
     },
     theme: {
       day: "JOUR",
