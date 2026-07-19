@@ -23,7 +23,7 @@ const linkKeys = [
   { key: "developments", href: "/developments" },
   { key: "services", href: "#" },
   { key: "about", href: "/about" },
-  { key: "contact", href: "#" },
+  { key: "contact", href: "/contact" },
 ] as const;
 
 export function Nav() {

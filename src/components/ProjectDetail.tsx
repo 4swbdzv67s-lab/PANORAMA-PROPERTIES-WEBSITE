@@ -140,7 +140,7 @@ export function ProjectDetail({ project, galleryDay, galleryNight, plans }: Prop
             ))}
           </ul>
           <a
-            href="#"
+            href={`/contact?project=${project.slug}`}
             className="mt-8 inline-flex items-center gap-3 rounded-full border border-[#d92b25]/70 bg-black/30 px-6 py-3 text-sm font-medium tracking-wide text-white transition hover:bg-[#d92b25]"
           >
             {t.developments.enquireNow}

@@ -81,6 +81,23 @@ export const translations = {
       email: "[Add your official contact email]",
       socialTitle: "Follow Us",
     },
+    contact: {
+      eyebrow: "CONTACT US",
+      title: "Get in Touch",
+      intro:
+        "Have a question about one of our developments, or want to schedule a visit? Send us a message and our team will get back to you.",
+      formName: "Full Name",
+      formEmail: "Email Address",
+      formPhone: "Phone Number",
+      formProject: "Development You're Interested In",
+      formProjectNone: "General enquiry",
+      formMessage: "Message",
+      formMessagePlaceholder: "Tell us what you're looking for...",
+      formSubmit: "SEND MESSAGE",
+      formNote:
+        "Sending opens your email app with this message pre-filled to our team.",
+      detailsTitle: "Contact Details",
+    },
     footer: {
       rights: "All Rights Reserved.",
     },
@@ -172,6 +189,23 @@ export const translations = {
       emailLabel: "E-mail",
       email: "[Ajoutez votre e-mail de contact officiel]",
       socialTitle: "Suivez-nous",
+    },
+    contact: {
+      eyebrow: "CONTACTEZ-NOUS",
+      title: "Contactez-Nous",
+      intro:
+        "Une question sur l'un de nos projets, ou vous souhaitez programmer une visite ? Envoyez-nous un message et notre équipe vous répondra.",
+      formName: "Nom Complet",
+      formEmail: "Adresse E-mail",
+      formPhone: "Numéro de Téléphone",
+      formProject: "Projet qui vous intéresse",
+      formProjectNone: "Demande générale",
+      formMessage: "Message",
+      formMessagePlaceholder: "Dites-nous ce que vous recherchez...",
+      formSubmit: "ENVOYER LE MESSAGE",
+      formNote:
+        "L'envoi ouvre votre application e-mail avec ce message pré-rempli à destination de notre équipe.",
+      detailsTitle: "Coordonnées",
     },
     footer: {
       rights: "Tous Droits Réservés.",
