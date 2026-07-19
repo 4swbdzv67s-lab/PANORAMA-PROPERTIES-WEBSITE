@@ -14,6 +14,7 @@ import { renders as hewaBoraRenders } from "@/lib/hewa-bora-gallery";
 import { renders as kalemiLakeViewRenders } from "@/lib/kalemi-lake-view-gallery";
 import { renders as gombeApartmentsRenders } from "@/lib/gombe-apartments-gallery";
 import { renders as ngaliemaApartmentsRenders } from "@/lib/ngaliema-apartments-gallery";
+import { renders as kimpikaRenders } from "@/lib/kimpika-gallery";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -59,6 +60,11 @@ const galleryBySlug: Record<string, GalleryEntry> = {
   "ngaliema-apartments": {
     galleryDay: ngaliemaApartmentsRenders,
     galleryNight: ngaliemaApartmentsRenders,
+    plans: null,
+  },
+  kimpika: {
+    galleryDay: kimpikaRenders,
+    galleryNight: kimpikaRenders,
     plans: null,
   },
 };
